@@ -1,0 +1,49 @@
+Activity Stack
+-기본 : 후입선출(LIFO,Last In,First Out)
+-stack 될 수 있으면 건들지 않는게 좋다
+-분명한 의도를 가지고 적용해야 한다
+-모든종류를 다 알 수는 없다 >>stack를 관리할 일이 발생했을 경우에 적용가능한 launchMode,Flag를 찾아본다
+
+
+FIFO(First In, First Out)
+A
+
+B (Foreground)눈에보임
+A
+
+C (Foreground)눈에보임
+B
+A
+
+Stack 관리
+-Manifest이용
+    -launchMode
+        -standard(LIFO)
+            one-two-three-three
+        -singleTop
+            이동하려는 액티비티가 이미 스택에 탑에있는경우 새로 만들지 안흔다
+            새로운 박스에도 다른 액티비티를 쌓을 수 있다
+        -singleTask
+            -singleTask로 런치모드가 설정된 액티비티가 호출 되었을때 새로운 박스에 담는다
+        -singleInstance
+            -singleTask로 런치모드가 설정된 액티비티가 호출 되었을때 새로운 박스에 담는다
+            -새로운 박스에도 다른 액티비티를 쌓을 수 없다
+-Intent Flag이용
+    -FLAG_ACTIVITY_NEW_TASK(singleTask)
+    -FLAG_ACTIVITY_SINGLE_TOP(singleTop)
+    -FLAG_ACTIVITY_CLEAR_TOP
+        -A B C > A를 호출하면 A위의 스택을 다 비워버리겟다 > A
+    -FLAG_ACTIVITY_NO_HiSTORY
+        -호출된 액티비티는 스택에 쌓이지 않는다(로딩화면같은경우)
+    -FLAG_ACTIVITY_REORDER_TO_FRONT
+        -호출된 액티비티가 스택에 존재할 경우 최상위로 올려준다
+        -A B C > B 호출 시 >A C B로 바꿔줌
+    -FLAG_ACTIVITY_NO_ANIMATION
+        -화면전환 애니메이션을 생략한다
+-Intent Flag적용
+    -setFlag
+        -기존에 적용된 flag를 삭제하고 다시설정
+    -addFlag
+        -flag를 추가한다
+
+

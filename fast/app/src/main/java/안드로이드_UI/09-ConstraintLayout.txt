@@ -1,0 +1,49 @@
+-RelativeLayout
+    -핸드폰 리소스를 많이 차지한다
+
+ConstraintLayout
+-제약을 통해서 뷰를 배치하는 컨테이너 뷰
+-RelativeLayout에서 할 수 있는 모든것이 가능하다
+-기능이 엄청나게 많다
+-반대 방향으로 작용하는 두개의 제약을 동시에 적용하면 두 제약의 가운데에 배치된다
+
+1. 상대적 위치배정 (RelativeLayout기능)
+    -layout_constraint +제약이름 형태로 쓰임
+    -layout_constraint_toLeftOf
+        -B Left_toLeftOf A
+            -B 의 왼쪽을 A의 왼쪽에 붙이겟다
+            -Left > 속성이 적용되는 뷰의 Left
+            -toLeftOf > Of에 올 뷰의 Left
+        -B Right_toLeftOf A
+            -B의 오른쪽을 A의 완쪽에 붙이겟다
+        -A가 될 수 있는것들
+            -아이디로 설정된 뷰들
+            -parent
+2. 여백
+    -해당 방향으로 여백을 두기 위해서는 반드시 그쪽 방향에 제약이 있어야 한다
+    -layout_marginLeft =100dp
+    -layout_constraintLeft_toLeftOf = parent
+    -마진을 줄려고하는 방향의 제약이 반드시 있어야 한다
+3.Bias (편향,치우침)
+    -layout_constrainVertical_bias = 값
+    -layout_constrainHorizontal_bias = 값
+    -값
+        -비율로 설정해준다
+        -1 인 경우 100% 치우친다
+        -0.5인 경우 50% 치우친다 > 변화가없음
+4. 비율로 설정하는 방법  >> LinerLayout Weight
+    -layout_constrainHorizontal_weight
+    -layout_constrainVertical_weight
+    -비율을 주려는 세로 또는 가로는  0 dp로 해야 한다
+5. 원형 위치 설정(Circular Positioning)
+    -layout_constraintCircle : 기준을 정한다
+    -layout_constraintCircleRadius :두 중심간의 거리
+    -layout_constraintCircleAngle : 각도
+6. Chain 속성
+    -공존할수 없는 두가지 제약이 있을때 아무 설정하지않으면 애매한상태로있는다
+    -Spread Chain >>균등하게 냅둔다
+    -Spread Inside  >> 두가지 뷰를 양끝으로 이동시킴
+    -Packed >>두가지 뷰를 둘이 붙여둔다
+언어의 특징
+    -LTR (Left to Right) : 글자를 적는 방향이 왼쪽에서 오른쪽 > Start = Left , End = Right
+    -RTL (Right to Left) : 글자를 적는 방향이 오른쪽에서 왼쪽 > Start = Right , End = Left

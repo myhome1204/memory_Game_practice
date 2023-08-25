@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HangmanPage1Activity">
+    <TextView
+        android:layout_gravity="center"
+        android:layout_marginTop="350dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/easy"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:text="easy"
+        android:gravity="center"
+        android:textSize="60dp"
+        android:textColor="@color/black"
+        android:background="@color/teal_200"/>
+    <TextView
+        android:id="@+id/usually"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="80dp"
+        android:text="usually"
+        android:gravity="center"
+        android:textSize="60dp"
+        android:textColor="@color/black"
+        android:background="@color/material_dynamic_secondary60"/>
+    <TextView
+        android:id="@+id/hard"
+        android:layout_gravity="center"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:text="hard"
+        android:gravity="center"
+        android:textSize="60dp"
+        android:textColor="@color/black"
+        android:background="@color/purple_200"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

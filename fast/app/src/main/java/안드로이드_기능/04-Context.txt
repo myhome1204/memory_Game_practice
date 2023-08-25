@@ -1,0 +1,25 @@
+Context(문맥 - 앱의 흐름)
+Activity는 Context의 자식느낌
+Application Context
+-하나만존재
+-애플리케이션이 살아있는 동안 유지
+-앱이 살아있는동안에만필요한 정보를 저장하고싶을때
+-내 앱이 살이있는동안 내가 유지시키고싶은것들을 구현
+-액티비티끼리 intent로 정보를 계속 주고받아도 되지만 번거로우니까 masterapplication만들고 거기서 관리하기
+-물론 그렇게 많이 사용하지는않음( 사용빈도가 낮지만 아예안쓰는정도는아님)
+
+-Context를 구현하고 기능을 추가한게 >Activity
+Activity Context
+-Activity 마다 존재
+-액티비티가 살아 있는 동안 유지
+책(Application Context)(아래의 Chapter1,Chapter2는 Application Context의 Context이다)
+    Chapter1  (Activity Context)
+        chapter1-1
+        chapter1-2
+    Chapter2 (Activity Context)
+        chapter2-1
+        chapter2-2
+        chapter2-3
+나중에 Context를넣어야할자리에 Activity를 넣을수잇다
+부모자식이라 다운캐스팅느낌(자바)
+

@@ -1,0 +1,70 @@
+변수
+    -변경가능한 변수
+        var
+    -변경이 불가능한 변수
+        val
+선언방법(상자만들기)
+    var/val 이름
+    -val school
+    -var school
+할당방법(상자안에 값넣기)
+    -val/var = 값
+    -val/var school = "대한민국학교" >>선언과 할당을 동시에해야함
+암묵적인 규칙
+    -val 을 선언할때는 대문자로선언
+    -val SCHOOL = 100
+    -var 을 선언할때는 소문자로선언
+자동정렬하는 방법
+    -단축키로 사용하기
+    -컨트롤 알트 s 누르고 설정하기
+    -컨트롤 알트 L 누르면 자동정렬
+변수네이밍 신경쓰기
+    -가독성을 위해서 score_average = (수학+영어+국어)/3 <이런식으로
+
+
+자료형
+1.정수
+    -byte,short,int,long
+    -바이트애서 롱으로 갈때 표현할수잇는 숫자의범위가 크다
+    -U가붙으면 양수만 표현가능(UByte,UInt,UShort)
+2.실수
+    -float,double 소수점을표현
+
+3.논리형
+    -참/거짓 Boolean
+4.문자형
+    -한글자임
+    -ex) 'A','가'
+5.문자열형
+    -여러글자임
+    -ex) "안녕하세요","ABC"
+
+    *자료형 추론하기
+    -var changeYes : Byte = 100  (자료형명시하는방법)
+    -var/val 변수명 : 변수형 = 값
+    var은 알아서 자료형을 추정함(정수의경우 코틀린은 기본적으로 Int로 추론한다.)
+    *추론 도와주기(거의사용 x)
+    -var number1 =100
+    -var number2 = 100L (뒤에 L을붙이기)
+    -var bigNumber = 1_474_5182_4214(_로 끊어서 사용하기)
+컨트롤 + "/" 하면 주석처리
+NULL
+    -상태를모름,존재하지않음
+    -0과는 다르다 (0은정수임)
+    -NULL을 대상으로는 연산을 할 수 없다
+    -비교연산은 가능함
+    -NULL +3 = NULL 불가능
+NULLSafety(NULL부터 안전하기)
+    -코틀린의 가장 큰 특징중 하나
+NULL표현방법
+    -NULL은 값자리에 들어올수잇다
+    -val/var 변수명 :자료형 = NULL
+    -val number : Int? = null  >>null가능
+    -val number : Int = null  >>null불가능
+val number: Int? = 10
+val number2 : Int? = 3+5
+val sum : Int? = number + number2 <<이코드 오류 why? number 과 number2가 Nullable타입 이라서
+alt + shift + f10 >>실행 단축키
+
+
+

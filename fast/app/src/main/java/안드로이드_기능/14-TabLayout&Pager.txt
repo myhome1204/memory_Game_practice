@@ -1,0 +1,12 @@
+TabLayout & Pager
+-둘이 동시에 사용됨
+
+Pager
+-종이 넘기 듯이 화면을 전환시켜준다
+
+TabLayout
+-tab를 담당하는 역할
+
+Adapter
+-두개로 묶어줘야함
+-TabLayout와 Pager를 연결시켜주는 역할
