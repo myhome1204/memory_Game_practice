@@ -12,36 +12,36 @@ class FragmentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment)
 
-        val fragmentManager = supportFragmentManager
-        val fragmentFirst = Fragment_First()
-        //Transaction
-        //작업의단위 >>시작과 끝이 있다
-        //  A,B,C,D 작업을 언제할까??
-        //코드로 fragment만든느것도 일단 class만들고 fragment.xml만드는것까지는 똑같음
-        //내가붙이고싶은 Activity에 붙이는방법이 2개인거임 코드로 붙이냐 xml에서 붙이냐 그차이 재사용해서 사용한것임
-        (findViewById<TextView>(R.id.add)).setOnClickListener {
-            val transcation = fragmentManager.beginTransaction()//시작
-            //프래그먼트에 데이터를 전달 하는 방법
-            //번들객체를만들고 번들에 원하는 데이터를만들고 번들을 프라그먼트에 장착
-            val bundle = Bundle()
-            bundle.putString("key","hello")
-            fragmentFirst.arguments = bundle
-
-            transcation.replace(R.id.root,fragmentFirst,"fragment_first_tag")
-            transcation.commit()//끝
-        }
-        (findViewById<TextView>(R.id.remove)).setOnClickListener {
-            val transaction = fragmentManager.beginTransaction()
-            transaction.remove(fragmentFirst)
-            transaction.commit()
-        }
-        (findViewById<TextView>(R.id.access_fragment)).setOnClickListener {
-            //xml로붙인 fragment를찾는방법
-//            val fragmentFirst = supportFragmentManager.findFragmentById(R.id.fragment_first) as Fragment_First
-//            fragmentFirst.printTestLog()
-            val fragmentFirst =supportFragmentManager.findFragmentByTag("fragment_first_tag") as Fragment_First
-            fragmentFirst.printTestLog()
-        }
+//        val fragmentManager = supportFragmentManager
+//        val fragmentFirst = Fragment_First()
+//        //Transaction
+//        //작업의단위 >>시작과 끝이 있다
+//        //  A,B,C,D 작업을 언제할까??
+//        //코드로 fragment만든느것도 일단 class만들고 fragment.xml만드는것까지는 똑같음
+//        //내가붙이고싶은 Activity에 붙이는방법이 2개인거임 코드로 붙이냐 xml에서 붙이냐 그차이 재사용해서 사용한것임
+//        (findViewById<TextView>(R.id.add)).setOnClickListener {
+//            val transcation = fragmentManager.beginTransaction()//시작
+//            //프래그먼트에 데이터를 전달 하는 방법
+//            //번들객체를만들고 번들에 원하는 데이터를만들고 번들을 프라그먼트에 장착
+//            val bundle = Bundle()
+//            bundle.putString("key","hello")
+//            fragmentFirst.arguments = bundle
+//
+//            transcation.replace(R.id.root,fragmentFirst,"fragment_first_tag")
+//            transcation.commit()//끝
+//        }
+//        (findViewById<TextView>(R.id.remove)).setOnClickListener {
+//            val transaction = fragmentManager.beginTransaction()
+//            transaction.remove(fragmentFirst)
+//            transaction.commit()
+//        }
+//        (findViewById<TextView>(R.id.access_fragment)).setOnClickListener {
+//            //xml로붙인 fragment를찾는방법
+////            val fragmentFirst = supportFragmentManager.findFragmentById(R.id.fragment_first) as Fragment_First
+////            fragmentFirst.printTestLog()
+//            val fragmentFirst =supportFragmentManager.findFragmentByTag("fragment_first_tag") as Fragment_First
+////            fragmentFirst.printTestLog()
+//        }
         //commit
         //1> commit
         //2> commitAllowingStateLoss

@@ -24,11 +24,14 @@ import kotlinx.coroutines.*
 class DatabaseCreateActivity : AppCompatActivity() {
     //데이터베이스 만들고 실제로 데이터를 집어넣음
     //데이터베이스를 비동기스레드로 이용해 반복사용을 줄이고 효율을높이기위해서 코루틴으로 만들었다.
+
     @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_database_create2)
+
         CoroutineScope(Dispatchers.IO).launch {
+
             val appDatabase = AppDatabase.getInstance(applicationContext)
             val myDataDao = appDatabase.myDataDao()
             val myDataList = listOf(

@@ -1,5 +1,7 @@
 package com.example.fast
 
+import android.annotation.SuppressLint
+import android.net.ipsec.ike.TunnelModeChildSessionParams.TunnelModeChildConfigRequest
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import org.w3c.dom.Text
 
-class Fragment_First :Fragment() {
+class Fragment_First :Fragment(),MyView {
+    private lateinit var presenter: MyPresenter
+    private var Fbtn: TextView? = null
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,24 +25,36 @@ class Fragment_First :Fragment() {
         //container : 프라그먼트에서 사용될 xml이 부모뷰(모든뷰는 부모나자식이여야해서 container를 부모로설정한것)
         //attachToRoot : 루트뷰에 붙일지말지를 말하는게아님 언제붙일거냐를물어보는거 true면 바로붙음
         val view =  inflater.inflate(R.layout.first_fragment,container,false)
-        (view.findViewById<TextView>(R.id.call_activity)).setOnClickListener {
-            view.findViewById<TextView>(R.id.call_activity).text = "ASd"
-            //fragment에서 activity의 함수를 쓸수잇다
-            //반대도가능
-            (activity as FragmentActivity).printTestLog()
-        }
+//        (view.findViewById<TextView>(R.id.call_activity)).setOnClickListener {
+//            view.findViewById<TextView>(R.id.call_activity).text = "ASd"
+//            //fragment에서 activity의 함수를 쓸수잇다
+//            //반대도가능
+//            (activity as FragmentActivity).printTestLog()
+//        }
+        Fbtn = view?.findViewById(R.id.FragBtn)
         return view
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        presenter = MyPresenter()
+        presenter.attachView(this)
 
+        Fbtn?.setOnClickListener {
+            Log.d("testt","클릭은됨")
+            presenter.OnButtonClick()
+        }
         val data : String? = arguments?.getString("key")
         if (data != null) {
             Log.d("testt",data)
         }
     }
-    fun printTestLog(){
-        Log.d("testt","print test log from fragment")
+//    fun printTestLog(){
+//        Log.d("testt","print test log from fragment")
+//    }
+
+    override fun showData(data: String) {
+        val text = view?.findViewById<TextView>(R.id.frgtext)
+        text?.text = data
     }
 
 }

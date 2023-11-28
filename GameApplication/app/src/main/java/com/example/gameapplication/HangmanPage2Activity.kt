@@ -25,6 +25,7 @@ import kotlin.random.Random
 class HangmanPage2Activity : AppCompatActivity() {
     private lateinit var binding: ActivityHangmanPage2Binding
     private lateinit var viewModel: WordViewModel
+    private lateinit var musicviewModel: MusicViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hangman_page2)
@@ -36,6 +37,8 @@ class HangmanPage2Activity : AppCompatActivity() {
             R.layout.activity_hangman_page2
         )
         viewModel = ViewModelProvider(this@HangmanPage2Activity).get(WordViewModel::class.java)
+        musicviewModel = ViewModelProvider(this@HangmanPage2Activity).get(MusicViewModel::class.java)
+
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@HangmanPage2Activity
         //아까 페이제1에서보낸 레벨(이미지리스트를 고르기위함)과 chance(목숨)을받아줌
@@ -45,6 +48,18 @@ class HangmanPage2Activity : AppCompatActivity() {
         //코루틴에서 바로 해당액티비티의 메인(UI)쓰레드에 접근할수없어서 launch(Dispatchers.Main)를 열어서 UI를 사용해야함
         // 코루틴을스코프를통해 데이터를 가져오고 랜덤으로 선택하기위해 random변수를 만들어둠
         CoroutineScope(Dispatchers.IO).launch {
+            val musicDatabase = MusicDatabase.getInstance(applicationContext)
+            val mymusicDataDao = musicDatabase?.musicDao()
+            val musiclist = mymusicDataDao?.getAll()
+            if (musiclist != null) {
+                for(music in musiclist){
+                    Log.d("musicdatabase","${music.musicfilepath}")
+                    musicviewModel.playMusic(music.musicfilepath.toString())
+                }
+            }else{
+                Log.d("musicdatabase","실패")
+            }
+
             val appDatabase = AppDatabase.getInstance(applicationContext)
             val myDataDao = appDatabase.myDataDao()
             val random = Random(System.currentTimeMillis())
@@ -71,12 +86,9 @@ class HangmanPage2Activity : AppCompatActivity() {
                 findViewById<TextView>(R.id.check).setOnClickListener {
                     viewModel.updateWord(userAnswer)
                 }
-
             }
         }
-
     }
-
 }
 
 

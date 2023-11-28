@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomeworkActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="checkbox배우기!"
+        android:textSize="30dp" />
+
+    <CheckBox
+        android:id="@+id/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="android"
+        android:textSize="30dp" />
+
+    <CheckBox
+        android:id="@+id/iphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="iphone"
+        android:textSize="30dp" />
+
+    <CheckBox
+        android:id="@+id/windowphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="windowphone"
+        android:textSize="30dp" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="on/off"
+        android:textSize="30dp" />
+
+    <ToggleButton
+        android:id="@+id/toggle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="toogle"
+        android:textSize="30dp"/>
+
+    <RadioGroup
+        android:id="@+id/group"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height= "wrap_content">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rdobtn1"
+            android:text="man"
+            android:textSize="30dp"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rdobtn2"
+            android:text="woman"
+            android:textSize="30dp"/>
+
+    </RadioGroup>
+</LinearLayout>

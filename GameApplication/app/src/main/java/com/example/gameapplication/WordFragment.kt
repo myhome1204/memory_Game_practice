@@ -22,6 +22,7 @@ import com.example.gameapplication.databinding.WordfragmentBinding
 class WordFragment : Fragment() {
     //fragment의 액티비티와의 실시간 정보교환을 위한 viewModel을 정의한다
     private lateinit var viewModel: WordViewModel
+
     //onViewCreated밖에서 카운트비교를위해서 변수 count의 범위를 넓게잡기위해 선언해준다
     var count = 0
     override fun onCreateView(
@@ -40,6 +41,7 @@ class WordFragment : Fragment() {
         binding.lifecycleOwner = this
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // 액티비티에서 fragment에 bundle로보낸 정보들을 받는다
@@ -66,28 +68,29 @@ class WordFragment : Fragment() {
                     val alphabet = viewModel.word.value
                     if (alphabet != null) {
                         if (level != null) {
-                            checkUserInput(word, viewModel.word, life,level)
+                            checkUserInput(word, viewModel.word, life, level)
                         }
                     }
                 }
             }
         })
     }
+
     //파라미터로받은 정답을 이용해서 정답을 _ _ _ 으로 바꿔주는함수이다
     private fun displayWord(word: String) {
         if (word != null) {
             view?.findViewById<TextView>(R.id.hint)?.text =
                 word.map { if (it == ' ') " " else "_" }.joinToString(" ")
         }
-
     }
+
     //activity에서 보내준 알파벳이 정답에 포함되어있으면 _을 해당 알파벳으로 바꿔주는함수이다
     //또한 사용자가 없는 알파벳을 보내줄 때 마다 Recyclerview에있는 이미지를 바꿔주는 역할도한다
     private fun checkUserInput(
         answer: String,
         userInput: MutableLiveData<String>,
         life: Int,
-        level : Int
+        level: Int
     ) {
         val updatedWord = StringBuilder(view?.findViewById<TextView>(R.id.hint)?.text.toString())
         val input = userInput.value ?: ""
@@ -111,15 +114,14 @@ class WordFragment : Fragment() {
                     //다시하기버튼을 누르면 다시 GameOverActivity에서 HangmanPage2Activity로 보내는거다
                     //HangmanPage2Activity는 시작할때 intent로 2개의 값을받으니까
                     val intent = Intent(requireContext(), GameOverActivity::class.java)
-                    intent.putExtra("level",level)
-                    intent.putExtra("chance",life)
+                    intent.putExtra("level", level)
+                    intent.putExtra("chance", life)
                     startActivity(intent)
                     activity?.overridePendingTransition(R.anim.fade, R.anim.fade)
                     activity?.finish() //액티비티 이동시에 이 액티비티를 죽여서 regame시에 다시활용안시킴
                 }
             }
         }
-
     }
 }
 

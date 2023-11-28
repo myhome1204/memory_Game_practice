@@ -6,8 +6,8 @@ import retrofit2.http.Field
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.POST
+import java.io.File
 import java.io.Serializable
 
 class StudentFromService(
@@ -18,8 +18,8 @@ class StudentFromService(
 class YoutubeItem(
     val id: Int,val title : String,val content : String,val video : String,val thumbnail:String
 )
-class UserToken(
-     val username : String, val token : String
+class User(
+     val username : String, val token : String,val id : Int
 )
 class Token(
     val token : String
@@ -33,7 +33,30 @@ class jud(
 class MelonItem(
     val id : Int , val title : String = "" ,val song : String,val thumbnail : String
 ): Serializable
+class Post(
+    val content: String, image: File
+)
+
+class InstarPost(
+    val content :String,val image : String,val owner_profile:OwnerProfile
+)
+class OwnerProfile(
+    val username : String,val image:String
+)
 interface RetrofitService {
+    @GET("instagram/post/list/all/")
+    fun getInstargramPosts():Call<ArrayList<InstarPost>>
+    @POST("user/signup/")
+    @FormUrlEncoded
+    fun instarJoin(
+        @FieldMap params: HashMap<String,Any>
+    ):Call<User>
+
+    @POST("user/login/")
+    @FormUrlEncoded
+    fun instarLogin(
+        @FieldMap params: HashMap<String,Any>
+    ):Call<User>
     @GET("melon/list/")
     fun getMelonItemList():Call<ArrayList<MelonItem>>
     @GET("json/students")
@@ -57,7 +80,7 @@ interface RetrofitService {
     @POST("user/signup/")
     @FormUrlEncoded
     fun join(@FieldMap params: HashMap<String,Any>
-    ): Call<UserToken>
+    ): Call<User>
     @FormUrlEncoded
     @POST("SignUp.php")
     fun Register(
