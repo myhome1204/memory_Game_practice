@@ -13,6 +13,16 @@
         android:theme="@style/Theme.Compute"
         tools:targetApi="31">
         <activity
+            android:name=".SparrowActivity"
+            android:exported="false"
+            android:label="@string/title_activity_ball_main"
+            android:theme="@style/Theme.Compute" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_sparrow"
+            android:theme="@style/Theme.Compute" />
+        <activity
             android:name=".BubbleActivity"
             android:exported="false" />
         <activity
@@ -50,7 +60,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".BallMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

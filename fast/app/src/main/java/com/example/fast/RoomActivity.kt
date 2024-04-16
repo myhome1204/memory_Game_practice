@@ -23,7 +23,7 @@ class RoomActivity : AppCompatActivity() {
         setContentView(R.layout.activity_room)
 //        //기본적으로 데이터베이스 작업은 메인 쓰레드에서 할 수 없다
 //        //이유는 ,데이터베이스 작업을 휴대폰이 하는 동안 사용자가 기다려야하기 때문
-//        //해결채은 , 쓰레드를 이요하거나 asvnc 를 이용하면된다
+//        //해결책은 , 쓰레드를 이요하거나 asvnc 를 이용하면된다
         val database = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java,

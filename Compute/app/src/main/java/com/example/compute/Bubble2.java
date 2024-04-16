@@ -53,18 +53,6 @@ public class Bubble2 {
         }
     }
 
-    public boolean hitTest(float px, float py) {
-        isDead = false;
-        float dist = (x -px) * (x -px) + (y -py) * (y -py);
-        if (dist < r * r) {
-            int cnt = rnd.nextInt(6) + 25;
-            for (int i = 1; i <= cnt; i++) {
-                gameview2.mSmall.add(new smallBubble(context, scrW, scrH, x, y));
-            }
-            isDead = true;
-        }
-        return isDead;
-    }
 
 
 }

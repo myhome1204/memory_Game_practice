@@ -45,4 +45,6 @@
     </string>
     <string name="title_activity_main3">MainActivity3</string>
     <string name="title_activity_bubble">BubbleActivity</string>
+    <string name="title_activity_sparrow">SparrowActivity</string>
+    <string name="title_activity_ball_main">BallMainActivity</string>
 </resources>

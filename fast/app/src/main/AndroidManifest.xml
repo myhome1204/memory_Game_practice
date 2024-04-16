@@ -91,7 +91,7 @@
             android:name=".Practicectivity"
             android:exported="true" />
         <activity
-            android:name=".MVPExampleActivity"
+            android:name=".Activity_01"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -171,7 +171,7 @@
             android:name=".ViewControl_02"
             android:exported="false" />
         <activity
-            android:name=".Activity_01"
+            android:name=".MVPExampleActivity"
             android:exported="false" />
         <activity
             android:name=".TestActivity"

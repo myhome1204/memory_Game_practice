@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VIew.GameActivity">
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/imageFragment"/>
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/wordFragment"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:id="@+id/input"
+            android:hint="단어를 입력해주세요(한글자씩)"/>
+        <TextView
+            android:layout_weight="8"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/checkBtn"
+            android:background="@color/black"/>
+    </LinearLayout>
+
+</LinearLayout>
